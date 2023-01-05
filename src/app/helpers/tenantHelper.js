@@ -15,6 +15,7 @@ const successResponseStatusCode = 200
 const request = require('request');
 const CacheManager = require('sb_cache_manager')
 const cacheManager = new CacheManager({ ttl: Number(envHelper.RESPONSE_CACHE_TTL) * 60, store: envHelper.CACHE_STORE })
+const devConfig = require('./devConfig')
 
 module.exports = {
 
@@ -91,7 +92,7 @@ module.exports = {
           }, function (err, results) {
             if (err) { }
             responseObj.logo = results.logo
-              ? results.logo : baseUrl + '/assets/images/sunbird_logo.png'
+              ? results.logo : envHelper.SECONDARY_LOGO ? baseUrl + '/assets/images/sunbird_secondarylogo.png': baseUrl + '/assets/images/sunbird_logo.png'
             responseObj.poster = results.poster
               ? results.poster : baseUrl + '/assets/images/sunbird_logo.png'
             responseObj.favicon = results.favicon
