@@ -71,6 +71,9 @@ let envVariables = {
   // generic editor content size 150 MB
   SUNBIRD_DEFAULT_FILE_SIZE: env.sunbird_default_file_size || 150,
 
+  // secondary logo available
+  SECONDARY_LOGO: env.secondary_logo ||  'false',
+
   // Keycloak Configuration
   KEY_CLOAK_PUBLIC: env.sunbird_keycloak_public || 'true',
   KEY_CLOAK_REALM: env.sunbird_keycloak_realm || 'sunbird',
